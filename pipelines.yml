@@ -1,37 +1,20 @@
 resources:
-  - name: globaldot
+  - name: globaldot-script
     type: GitRepo
     configuration:
       gitProvider: github       
-      path: DekelMalul/globaldots  
+      path: DekelMalul/globaldots-scripts  
      
       
 pipelines:
-  - name: build_python_liabery
+  - name: build_image
     steps:
       - name: build
-        type: Bash
+        type: DockerBuild 
         configuration:
           inputResources:
             - name: globaldot
-        execution:
-          onExecute:
-            - git clone https://github.com/DekelMalul/globaldots.git
-            - cd globaldots/pythonlib
-            - pip install wheel setuptools 
-            - python setup.py sdist bdist_wheel
-            
-     
-      - name: push
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: build
-        execution:
-          onExecute:
-            - git clone https://github.com/DekelMalul/globaldots.git
-            - cd globaldots/pythonlib
-            - pip install twine
-           # - twine register -u dekelmalul@gmail.com -p AP5d2GKyYZ6DpaAyE9M3ZsLi3T6 --repository-url https://dekelartifactory.jfrog.io/artifactory/api/pypi/pypi strupper
-            - twine upload  -u dekelmalul@gmail.com -p AP5d2GKyYZ6DpaAyE9M3ZsLi3T6 --repository-url https://dekelartifactory.jfrog.io/artifactory/api/pypi/pypi dist/*
- 
+          dockerFileLocation: dockerfile/
+          dockerFileName: dockerfile
+          dockerImageName: strupper
+          dockerImageTag: latest
