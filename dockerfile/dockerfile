@@ -1,0 +1,6 @@
+FROM python:3-alpine
+WORKDIR /root
+COPY .pip /root/.pip
+RUN apk add git && git clone https://github.com/DekelMalul/globaldots-script.git && pip install strupper
+WORKDIR /root/globaldots-script
+CMD python app.py dekel
