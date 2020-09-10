@@ -13,7 +13,7 @@ pipelines:
         type: DockerBuild 
         configuration:
           inputResources:
-            - name: globaldot
+            - name: globaldot_script
           dockerFileLocation: dockerfile/
           dockerFileName: dockerfile
           dockerImageName: strupper
