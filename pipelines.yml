@@ -1,5 +1,5 @@
 resources:
-  - name: globaldot-script
+  - name: globaldot_script
     type: GitRepo
     configuration:
       gitProvider: github       
