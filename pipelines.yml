@@ -1,9 +1,9 @@
 resources:
-  - name: globaldot_script
+  - name: globaldots_script
     type: GitRepo
     configuration:
       gitProvider: github       
-      path: DekelMalul/globaldot-script  
+      path: DekelMalul/globaldots-script  
      
       
 pipelines:
@@ -13,7 +13,7 @@ pipelines:
         type: DockerBuild 
         configuration:
           inputResources:
-            - name: globaldot_script
+            - name: globaldots_script
           dockerFileLocation: dockerfile/
           dockerFileName: dockerfile
           dockerImageName: strupper
