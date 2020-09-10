@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github       
-      path: DekelMalul/globaldot-scripts  
+      path: DekelMalul/globaldot-script  
      
       
 pipelines:
