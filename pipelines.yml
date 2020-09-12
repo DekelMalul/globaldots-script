@@ -1,9 +1,9 @@
 resources:
-  - name: globaldots_script
+  - name: kayhut_script
     type: GitRepo
     configuration:
       gitProvider: github       
-      path: DekelMalul/globaldots-script  
+      path: DekelMalul/kayhut-script  
      
       
 pipelines:
@@ -13,7 +13,7 @@ pipelines:
         type: DockerBuild 
         configuration:
           inputResources:
-            - name: globaldots_script
+            - name: kayhut_script
           dockerFileLocation: dockerfile/
           dockerFileName: dockerfile
           dockerImageName: strupper
